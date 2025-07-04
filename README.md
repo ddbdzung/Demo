@@ -20,7 +20,6 @@ All extended guides live in the `documents/` directory:
 | Topic | File |
 |-------|------|
 | Conventional Commit / Commitlint | `documents/commitlint.md` |
-| Renovate Bot (setup & optimizations) | `documents/renovate.md` |
 | Project Workflow Diagram | `documents/workflow.png` |
 
 > Browse the directory for additional docs & assets.
