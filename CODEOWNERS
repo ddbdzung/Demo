@@ -1,0 +1,32 @@
+# Global ownership - all files require review from repository owners
+* @ddbdzung
+
+# Core application files
+/src/ @ddbdzung
+/test/ @ddbdzung
+
+# Configuration files - require extra attention
+*.json @ddbdzung
+*.js @ddbdzung
+*.ts @ddbdzung
+.env* @ddbdzung
+docker* @ddbdzung
+
+# CI/CD and automation
+/.github/ @ddbdzung
+/.husky/ @ddbdzung
+/workflow.png @ddbdzung
+
+# Documentation
+*.md @ddbdzung
+/docs/ @ddbdzung
+
+# Package management
+package.json @ddbdzung
+pnpm-lock.yaml @ddbdzung
+pnpm-workspace.yaml @ddbdzung
+
+# Security and quality tools
+.eslintrc* @ddbdzung
+.prettierrc* @ddbdzung
+commitlint.config.* @ddbdzung 
