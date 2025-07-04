@@ -1,0 +1,63 @@
+name: Renovate Auto-Merge
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  auto-approve:
+    if: github.actor == 'renovate[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Extract PR info
+        id: pr-info
+        run: |
+          echo "title=${{ github.event.pull_request.title }}" >> $GITHUB_OUTPUT
+          echo "body=${{ github.event.pull_request.body }}" >> $GITHUB_OUTPUT
+
+      - name: Auto-approve minor/patch dependency updates
+        if: |
+          contains(github.event.pull_request.title, 'chore(deps):') &&
+          (contains(github.event.pull_request.title, 'patch') || 
+           contains(github.event.pull_request.title, 'minor') ||
+           contains(github.event.pull_request.body, 'Type: patch') ||
+           contains(github.event.pull_request.body, 'Type: minor'))
+        uses: juliangruber/approve-pull-request-action@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ github.event.pull_request.number }}
+
+  # This job will only run after CI passes and the PR is approved
+  auto-merge:
+    needs: [auto-approve]
+    if: |
+      github.actor == 'renovate[bot]' &&
+      contains(github.event.pull_request.title, 'chore(deps):') &&
+      (contains(github.event.pull_request.title, 'patch') || 
+       contains(github.event.pull_request.title, 'minor') ||
+       contains(github.event.pull_request.body, 'Type: patch') ||
+       contains(github.event.pull_request.body, 'Type: minor')) &&
+      !contains(github.event.pull_request.title, 'major')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for CI
+        uses: lewagon/wait-on-check-action@v1.3.4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          check-name: 'build' # This should match the job name in ci.yml
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 30
+
+      - name: Auto-merge
+        if: success()
+        uses: pascalgn/merge-pull-request-action@v0.22.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          merge_method: squash
+          commit_title: ${{ github.event.pull_request.title }} 
