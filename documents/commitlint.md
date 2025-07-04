@@ -31,10 +31,10 @@ Commitlint is an automated linter for Git commit messages. It validates that eac
 ## Installation
 ```bash
 # Recommended package manager for this repo
-docker add -D @commitlint/cli @commitlint/config-conventional
+pnpm add -D @commitlint/cli @commitlint/config-conventional
 
 # Initialise Husky hooks if you haven’t yet
-dnpn dlx husky-init && pnpm install
+pnpm dlx husky-init && pnpm install
 ```
 After the script Husky adds a `pre-commit` hook. We’ll add a `commit-msg` hook in the next section.
 

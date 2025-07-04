@@ -7,7 +7,7 @@ this repository. Tick the boxes as you go! 👍
 - [X] **Add Commitlint / Conventional Commit hooks** (husky + @commitlint)
 - [X] **Add CODEOWNERS** file
 - [X] **Setup GitHub Actions CI** (lint, test, build)
-- [ ] **Configure Renovate / Dependabot**
+- [X] **Configure Renovate / Dependabot**
 - [X] **Add LICENSE** (e.g. MIT)
 
 ## 2️⃣ Testing

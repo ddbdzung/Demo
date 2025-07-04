@@ -25,7 +25,8 @@
     "prepare": "husky || true",
     "commit": "git-cz",
     "release": "standard-version",
-    "clean": "rm -rf dist tsconfig*.tsbuildinfo"
+    "clean": "rm -rf dist tsconfig*.tsbuildinfo",
+    "renovate:validate": "node .github/renovate-validation.js"
   },
   "dependencies": {
     "@nestjs/common": "^11.1.3",
