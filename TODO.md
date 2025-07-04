@@ -8,7 +8,7 @@ this repository. Tick the boxes as you go! 👍
 - [X] **Add CODEOWNERS** file
 - [X] **Setup GitHub Actions CI** (lint, test, build)
 - [ ] **Configure Renovate / Dependabot**
-- [ ] **Add LICENSE** (e.g. MIT)
+- [X] **Add LICENSE** (e.g. MIT)
 
 ## 2️⃣ Testing
 - [ ] **Unit test coverage** for each service / controller
