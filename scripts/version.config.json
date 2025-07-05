@@ -1,0 +1,32 @@
+{
+  "version": "1.0.1",
+  "description": "Version management configuration",
+  "project": {
+    "name": "Dashboard Service FnB",
+    "displayName": "Smax FnB Dashboard Service",
+    "description": "Interactive version management for Dashboard Service FnB project"
+  },
+  "commands": {
+    "enabled": {
+      "current": true,
+      "history": true,
+      "patch": true,
+      "minor": true,
+      "major": true,
+      "set": true,
+      "build": false,
+      "release": false
+    }
+  },
+  "settings": {
+    "docker_registry": "registry.smax.in/smaxfnb/smaxfnb_dashboard",
+    "build_script": "../build.sh",
+    "require_confirmation": true,
+    "allow_dangerous_commands": false
+  },
+  "messages": {
+    "build_disabled": "Build command is disabled. To enable: set 'commands.enabled.build' to true in version.config.json",
+    "release_disabled": "Release command is disabled. To enable: set 'commands.enabled.release' to true in version.config.json",
+    "dangerous_operation": "This operation requires confirmation. Use --force to skip confirmation."
+  }
+}
