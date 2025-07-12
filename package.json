@@ -1,6 +1,6 @@
 {
   "name": "nestjs-crud",
-  "version": "0.0.4",
+  "version": "0.0.1",
   "description": "NestJS CRUD API",
   "author": "Dang Duc B. Dzung (David)",
   "private": true,
@@ -25,6 +25,8 @@
     "prepare": "husky || true",
     "commit": "git-cz",
     "release": "standard-version",
+    "release:preview": "bash ./scripts/release-dry-run.sh",
+    "release:help": "bash ./scripts/release-help.sh",
     "clean": "rm -rf dist tsconfig*.tsbuildinfo"
   },
   "dependencies": {
