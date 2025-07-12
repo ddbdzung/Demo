@@ -8,7 +8,7 @@ module.exports = {
     'type-empty': [2, 'never'],
 
     'scope-enum': [2, 'always', [
-      'core', 'modules', 'config', 'deps', 'docs', 'ci'
+      'core', 'modules', 'config', 'deps', 'docs', 'ci', 'dx'
     ]],
 
     'subject-case': [2, 'never', ['sentence-case', 'start-case', 'pascal-case', 'upper-case']],

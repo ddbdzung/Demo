@@ -99,6 +99,7 @@ Canonical format:
 | deps    | Dependency management                     |
 | docs    | Documentation files                       |
 | ci      | Pipelines / GitHub Actions workflow files |
+| dx      | Developers experience changes             |
 
 ### Examples
 ```text
