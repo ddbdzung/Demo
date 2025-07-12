@@ -1,6 +1,6 @@
 {
   "name": "nestjs-crud",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "NestJS CRUD API",
   "author": "Dang Duc B. Dzung (David)",
   "private": true,
